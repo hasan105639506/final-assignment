@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-    <!-- Meta information for proper rendering and responsiveness -->
+    <!-- meta tags for character set and responsiveness -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Page Title -->
+    <!-- page title -->
     <title>Global Health Workforce Migration</title>
 
-    <!-- Link to external stylesheet -->
+    <!-- link to external css -->
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <!-- Page header: title and introduction -->
+    <!-- page header with title and description -->
     <header>
         <h1>Global Health Workforce Migration</h1>
         <p>
@@ -23,15 +23,17 @@
         </p>
     </header>
 
-    <!-- Main container for visualisation elements -->
+    <!-- container for map visualisation -->
     <main>
-        <!-- Map placeholder: this will be replaced by a D3-rendered SVG map -->
         <div id="map-container">
             <p>Loading map...</p>
         </div>
     </main>
 
-    <!-- Main JavaScript logic (module syntax enables ES6 imports) -->
+    <!-- container for tooltip (initially hidden) -->
+    <div id="tooltip" class="hidden"></div>
+
+    <!-- load the main javascript module -->
     <script type="module" src="main.js"></script>
 </body>
 

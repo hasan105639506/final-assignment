@@ -1,41 +1,92 @@
-// main.js – Step 2: Load and render world map using D3
+// main.js – step 4: show hover tooltips for each country
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3/+esm";
 
-// Dimensions for the map SVG
+// set svg dimensions
 const width = 960;
 const height = 500;
 
-// Create a projection and path generator
+// fixed year for now
+const currentYear = 2015;
+
+// create projection and path generator
 const projection = d3.geoNaturalEarth1()
-    .scale(160)
-    .translate([width / 2, height / 2]);
+  .scale(160)
+  .translate([width / 2, height / 2]);
 
 const path = d3.geoPath().projection(projection);
 
-// Create the SVG inside #map-container
+// select container and add svg
 const svg = d3.select("#map-container")
-    .html("") // Clear the placeholder text
-    .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+  .html("") // clear placeholder
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height);
 
-// Load and draw world map
-d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(worldData => {
-    // Convert TopoJSON to GeoJSON
-    const countries = feature(worldData, worldData.objects.countries).features;
+// load csv and return data lookup object
+async function loadMigrationData() {
+  const raw = await d3.csv("data/migration.csv");
+  const lookup = {};
 
-    // Draw each country as an SVG path
-    svg.append("g")
-        .selectAll("path")
-        .data(countries)
-        .enter().append("path")
-        .attr("d", path)
-        .attr("fill", "#ccc") // Default gray fill
-        .attr("stroke", "#333")
-        .attr("stroke-width", 0.5);
+  raw.forEach(row => {
+    const code = row.country_code;
+    const year = +row.year;
+    const value = parseFloat(row.value);
 
-    console.log("World map rendered.");
-}).catch(err => {
-    console.error("Failed to load map data:", err);
+    if (!lookup[code]) lookup[code] = {};
+    lookup[code][year] = value;
+  });
+
+  return lookup;
+}
+
+// load map and data in parallel
+Promise.all([
+  d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
+  loadMigrationData()
+]).then(([worldData, migrationData]) => {
+  // convert topojson to geojson
+  const countries = feature(worldData, worldData.objects.countries).features;
+
+  // define color scale
+  const color = d3.scaleThreshold()
+    .domain([5, 10, 20, 30, 40])
+    .range(["#edf8fb", "#b2e2e2", "#66c2a4", "#2ca25f", "#006d2c"]);
+
+  // draw map with hover tooltip
+  svg.append("g")
+    .selectAll("path")
+    .data(countries)
+    .enter().append("path")
+    .attr("d", path)
+    .attr("fill", d => {
+      const val = migrationData[d.id]?.[currentYear];
+      return val != null ? color(val) : "#ccc";
+    })
+    .attr("stroke", "#333")
+    .attr("stroke-width", 0.5)
+    .on("mouseover", function (event, d) {
+      const val = migrationData[d.id]?.[currentYear];
+      const name = d.properties.name || d.id;
+      const text = `<strong>${name}</strong><br>${val != null ? val.toFixed(1) + '% migrant workers' : 'no data'}`;
+
+      d3.select("#tooltip")
+        .html(text)
+        .classed("hidden", false);
+
+      d3.select(this).attr("stroke-width", 1.5);
+    })
+    .on("mousemove", function (event) {
+      d3.select("#tooltip")
+        .style("left", (event.pageX + 12) + "px")
+        .style("top", (event.pageY - 28) + "px");
+    })
+    .on("mouseout", function () {
+      d3.select("#tooltip").classed("hidden", true);
+      d3.select(this).attr("stroke-width", 0.5);
+    });
+
+  console.log("map rendered with tooltips");
+}).catch(error => {
+  console.error("error loading map or data:", error);
 });
