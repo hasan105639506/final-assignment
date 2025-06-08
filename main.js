@@ -314,3 +314,12 @@ function drawTrendChart(code, data) {
     });
 }
 
+// toggle attribution modal
+document.getElementById("open-attribution").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("attribution-modal").classList.remove("hidden");
+});
+
+document.getElementById("close-attribution").addEventListener("click", () => {
+  document.getElementById("attribution-modal").classList.add("hidden");
+});

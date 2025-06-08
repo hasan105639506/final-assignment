@@ -33,18 +33,18 @@
         <!-- controls for selecting region and resetting view -->
         <div id="top-controls">
             <div id="region-buttons">
-                <button data-region="World">world</button>
-                <button data-region="Africa">africa</button>
-                <button data-region="Europe">europe</button>
-                <button data-region="MiddleEast">middle east</button>
-                <button data-region="Asia">asia</button>
-                <button data-region="Americas">americas</button>
-                <button data-region="Oceania">oceania</button>
+                <button data-region="World">World</button>
+                <button data-region="Africa">Africa</button>
+                <button data-region="Europe">Europe</button>
+                <button data-region="MiddleEast">Middle East</button>
+                <button data-region="Asia">Asia</button>
+                <button data-region="Americas">Americas</button>
+                <button data-region="Oceania">Oceania</button>
             </div>
 
             <!-- slider to change the year-->
             <div id="year-slider">
-                <label for="slider">year: <span id="year-label">2015</span></label>
+                <label for="slider">Year: <span id="year-label">2015</span></label>
                 <input type="range" id="slider" min="2010" max="2020" step="1" value="2015">
             </div>
 
@@ -67,7 +67,36 @@
 
     <!-- load the main javascript module -->
     <script type="module" src="main.js"></script>
-    
+
+    <footer>
+        <a href="#" id="open-attribution">Data & Attribution</a>
+    </footer>
+
+    <!-- attribution modal -->
+    <div id="attribution-modal" class="hidden">
+        <div class="modal-content">
+            <button id="close-attribution">×</button>
+            <h3>Data & Attribution</h3>
+            <p>Visualisation developed using public datasets provided by the OECD:</p>
+            <p>Health Workforce Migration – <a
+                    href="https://data-explorer.oecd.org/vis?df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_HEALTH_WFMI%40DF_HEALTH_WFMI"
+                    target="_blank">View Dataset</a></p>
+            <p>Patient Experiences – <a href="https://data-explorer.oecd.org/vis?df[id]=DSD_HCQO%40DF_PE"
+                    target="_blank">View Dataset</a></p>
+            <p>Perceived Health Status – <a href="https://data-explorer.oecd.org/vis?df[id]=DSD_HEALTH_STAT%40DF_PHS"
+                    target="_blank">View Dataset</a></p>
+            <p>Life Expectancy – <a href="https://data-explorer.oecd.org/vis?df[id]=DSD_HEALTH_STAT%40DF_HEALTH_STATUS"
+                    target="_blank">View Dataset</a></p>
+            <p>Remuneration – <a href="https://data-explorer.oecd.org/vis?df[id]=DSD_HEALTH_REAC_EMP%40DF_REMUN"
+                    target="_blank">View Dataset</a></p>
+            <p>Provider Resources – <a
+                    href="https://data-explorer.oecd.org/vis?df[id]=DSD_HEALTH_REAC_HOSP%40DF_HOSP_REAC"
+                    target="_blank">View Dataset</a></p>
+
+            <p>All data © OECD. Used under open license.</p>
+        </div>
+    </div>
+
 </body>
 
 </html>
