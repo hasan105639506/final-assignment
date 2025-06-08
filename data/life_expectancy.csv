@@ -1,0 +1,56 @@
+country_code,country_name,year,value
+AUS,Australia,2010,80.8
+AUS,Australia,2011,84.6
+AUS,Australia,2012,73.2
+AUS,Australia,2013,80.0
+AUS,Australia,2014,74.6
+AUS,Australia,2015,80.1
+AUS,Australia,2016,70.3
+AUS,Australia,2017,75.8
+AUS,Australia,2018,82.8
+AUS,Australia,2019,76.7
+AUS,Australia,2020,83.1
+CAN,Canada,2010,79.8
+CAN,Canada,2011,77.3
+CAN,Canada,2012,75.4
+CAN,Canada,2013,82.5
+CAN,Canada,2014,82.9
+CAN,Canada,2015,70.3
+CAN,Canada,2016,72.3
+CAN,Canada,2017,72.6
+CAN,Canada,2018,73.4
+CAN,Canada,2019,80.6
+CAN,Canada,2020,78.6
+DEU,Germany,2010,70.3
+DEU,Germany,2011,81.5
+DEU,Germany,2012,77.2
+DEU,Germany,2013,78.7
+DEU,Germany,2014,78.3
+DEU,Germany,2015,76.4
+DEU,Germany,2016,76.1
+DEU,Germany,2017,78.8
+DEU,Germany,2018,84.0
+DEU,Germany,2019,84.0
+DEU,Germany,2020,83.5
+JPN,Japan,2010,71.4
+JPN,Japan,2011,83.9
+JPN,Japan,2012,77.2
+JPN,Japan,2013,81.3
+JPN,Japan,2014,78.4
+JPN,Japan,2015,85.0
+JPN,Japan,2016,79.9
+JPN,Japan,2017,79.4
+JPN,Japan,2018,75.5
+JPN,Japan,2019,80.1
+JPN,Japan,2020,84.4
+ZAF,South Africa,2010,84.5
+ZAF,South Africa,2011,76.7
+ZAF,South Africa,2012,80.6
+ZAF,South Africa,2013,72.3
+ZAF,South Africa,2014,70.3
+ZAF,South Africa,2015,74.1
+ZAF,South Africa,2016,70.1
+ZAF,South Africa,2017,79.8
+ZAF,South Africa,2018,70.5
+ZAF,South Africa,2019,73.3
+ZAF,South Africa,2020,79.6

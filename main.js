@@ -1,60 +1,41 @@
-// Import modules
-import { drawMap, updateMapYear } from 'map.js';
-import { initSlider } from 'slider.js';
-import { initRegionSelector } from 'regions.js';
-import { drawLegend } from 'legend.js';
-import { showCountryPanel, hidePanel } from 'panel.js';
-import { loadAllData } from 'utils.js';
+// main.js – Step 2: Load and render world map using D3
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3/+esm";
 
-// Global state
-let currentYear = 2015;
-let allData = {};
-let mapSvg = null;
+// Dimensions for the map SVG
+const width = 960;
+const height = 500;
 
-async function init() {
-    try {
-        // Load all datasets
-        allData = await loadAllData();
+// Create a projection and path generator
+const projection = d3.geoNaturalEarth1()
+    .scale(160)
+    .translate([width / 2, height / 2]);
 
-        // Draw the choropleth map
-        mapSvg = drawMap(allData, currentYear, handleCountryClick);
+const path = d3.geoPath().projection(projection);
 
-        // Initialize year slider
-        initSlider(currentYear, handleYearChange);
+// Create the SVG inside #map-container
+const svg = d3.select("#map-container")
+    .html("") // Clear the placeholder text
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
 
-        // Initialize region selector and zoom
-        initRegionSelector(mapSvg);
+// Load and draw world map
+d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(worldData => {
+    // Convert TopoJSON to GeoJSON
+    const countries = feature(worldData, worldData.objects.countries).features;
 
-        // Add choropleth legend
-        drawLegend();
+    // Draw each country as an SVG path
+    svg.append("g")
+        .selectAll("path")
+        .data(countries)
+        .enter().append("path")
+        .attr("d", path)
+        .attr("fill", "#ccc") // Default gray fill
+        .attr("stroke", "#333")
+        .attr("stroke-width", 0.5);
 
-        // Hook up attribution popup if needed
-        window.openAttribution = () => {
-            window.alert("Data source: OECD Health Statistics, 2025.\nAccessed via https://data-explorer.oecd.org/");
-        };
-
-    } catch (err) {
-        console.error("Initialisation error:", err);
-    }
-}
-
-// Slider change → update map
-function handleYearChange(newYear) {
-    currentYear = newYear;
-    updateMapYear(allData, currentYear);
-}
-
-// Country clicked → show panel
-function handleCountryClick(countryCode) {
-    showCountryPanel(countryCode, currentYear, allData);
-}
-
-// Hide panel on manual close
-document.addEventListener("click", (e) => {
-    if (e.target.matches("#close-panel, #country-panel .close")) {
-        hidePanel();
-    }
+    console.log("World map rendered.");
+}).catch(err => {
+    console.error("Failed to load map data:", err);
 });
-
-// Start the app
-init();

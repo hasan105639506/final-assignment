@@ -1,4 +1,5 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3/+esm";
 import { getColorScale } from './utils.js';
 
 let svg, path, tooltip;
@@ -23,7 +24,7 @@ export function drawMap(data, year, onCountryClick) {
         .style("opacity", 0);
 
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(worldData => {
-        const countries = topojson.feature(worldData, worldData.objects.countries).features;
+        const countries = feature(worldData, worldData.objects.countries).features;
 
         svg.append("g")
             .selectAll("path")
@@ -33,6 +34,7 @@ export function drawMap(data, year, onCountryClick) {
             .attr("class", "country")
             .attr("fill", d => {
                 const code = d.id;
+                console.log("Looking up", d.id, data.migration?.[d.id]?.[year]);
                 const val = data?.migration?.[code]?.[year];
                 return val != null ? getColorScale(val) : "#ccc";
             })

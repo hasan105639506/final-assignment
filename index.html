@@ -2,34 +2,36 @@
 <html lang="en">
 
 <head>
+    <!-- Meta information for proper rendering and responsiveness -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page Title -->
     <title>Global Health Workforce Migration</title>
+
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+    <!-- Page header: title and introduction -->
     <header>
         <h1>Global Health Workforce Migration</h1>
-        <p>Explore how countries rely on migrant health workers - and how this affects the quality of care, health
-            outcomes, and workforce capacity.</p>
+        <p>
+            Explore how countries rely on migrant health workers — and how this affects
+            the quality of care, health outcomes, and workforce capacity.
+        </p>
     </header>
 
+    <!-- Main container for visualisation elements -->
     <main>
-        <div id="map-container"></div>
-        <div id="controls">
-            <div id="region-selector"></div>
-            <div id="year-slider"></div>
+        <!-- Map placeholder: this will be replaced by a D3-rendered SVG map -->
+        <div id="map-container">
+            <p>Loading map...</p>
         </div>
-        <div id="legend"></div>
-        <div id="country-panel" class="hidden"></div>
     </main>
 
-    <footer>
-        <a href="#" onclick="openAttribution()">Data & Attribution</a>
-    </footer>
-
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Main JavaScript logic (module syntax enables ES6 imports) -->
     <script type="module" src="main.js"></script>
 </body>
 
