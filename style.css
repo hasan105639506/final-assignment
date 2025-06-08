@@ -61,3 +61,16 @@ header p {
   width: 300px;
   margin-top: 10px;
 }
+
+/* region zoom control */
+#region-controls {
+  margin: 20px auto;
+  text-align: center;
+}
+
+#region-controls select,
+#region-controls button {
+  font-size: 1rem;
+  padding: 6px 10px;
+  margin-left: 10px;
+}

@@ -28,6 +28,22 @@
         <div id="map-container">
             <p>Loading map...</p>
         </div>
+
+        <!-- controls for selecting region and resetting view -->
+        <div id="region-controls">
+            <label for="region-select">region: </label>
+            <select id="region-select">
+                <option value="World">world</option>
+                <option value="Africa">africa</option>
+                <option value="Europe">europe</option>
+                <option value="Asia">asia</option>
+                <option value="MiddleEast">middle east</option>
+                <option value="Americas">americas</option>
+                <option value="Oceania">oceania</option>
+            </select>
+            <button id="reset-view">🌍 reset</button>
+        </div>
+        
         <!-- slider to change which years data is shown -->
         <div id="year-slider">
             <label for="slider">year: <span id="year-label">2015</span></label>

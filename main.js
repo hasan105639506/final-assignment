@@ -6,6 +6,17 @@ import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3/+esm";
 const width = 960;
 const height = 500;
 
+// define region bounds for zooming
+const regionBounds = {
+    "World": null,
+    "Africa": [[-20, -35], [55, 38]],
+    "Europe": [[-25, 35], [45, 70]],
+    "Asia": [[45, 5], [150, 55]],
+    "MiddleEast": [[30, 12], [65, 42]],
+    "Americas": [[-130, -55], [-30, 70]],
+    "Oceania": [[110, -50], [180, 0]]
+};
+
 // set initial year for migration data
 let currentYear = 2015;
 
@@ -39,6 +50,30 @@ async function loadMigrationData() {
 
     return lookup;
 }
+
+function zoomToRegion(region) {
+    const bounds = regionBounds[region];
+    const g = svg.select("g");
+
+    if (!bounds) {
+        g.transition().duration(750)
+            .attr("transform", `translate(0,0) scale(1)`);
+        return;
+    }
+
+    const [[x0, y0], [x1, y1]] = bounds.map(projection);
+    const dx = x1 - x0;
+    const dy = y1 - y0;
+    const x = (x0 + x1) / 2;
+    const y = (y0 + y1) / 2;
+
+    const scale = Math.min(8, 0.9 / Math.max(dx / width, dy / height));
+    const translate = [width / 2 - scale * x, height / 2 - scale * y];
+
+    g.transition().duration(750)
+        .attr("transform", `translate(${translate}) scale(${scale})`);
+}
+
 
 // load map and data in parallel
 Promise.all([
@@ -110,6 +145,18 @@ Promise.all([
                     return val != null ? color(val) : "#ccc";
                 });
         });
+
+        // handle region selection
+        d3.select("#region-select").on("change", function () {
+            const region = this.value;
+            zoomToRegion(region);
+        });
+
+        // reset button returns to full view
+        d3.select("#reset-view").on("click", () => {
+            zoomToRegion("World");
+        });
+
 
         console.log("map rendered with tooltips");
     }).catch(error => {
