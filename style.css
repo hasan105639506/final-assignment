@@ -1,114 +1,128 @@
 /* base styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f9f9f9;
-  text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
 }
 
 /* page title */
 header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.3em;
+    font-size: 2rem;
+    margin-bottom: 0.3em;
 }
 
 /* page subtitle */
 header p {
-  color: #555;
-  font-size: 1rem;
-  max-width: 600px;
-  margin: 0 auto 2rem;
+    color: #555;
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
 }
 
-/* placeholder for the d3-rendered map */
+/* container for the main map */
 #map-container {
-  width: 100%;
-  max-width: 1000px;
-  height: 500px;
-  margin: 0 auto;
-  background-color: #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - 220px);
+    background-color: transparent;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* make svg fill container */
+#map-container svg {
+    width: 100%;
+    height: 100%;
 }
 
 /* tooltip styling */
 #tooltip {
-  position: absolute;
-  background-color: white;
-  padding: 8px 12px;
-  border: 1px solid #888;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  color: #222;
-  pointer-events: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  z-index: 10;
+    position: absolute;
+    background-color: white;
+    padding: 8px 12px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #222;
+    pointer-events: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 10;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 /* year slider styles */
 #year-slider {
-  margin: 20px auto;
-  text-align: center;
+    margin: 20px auto;
+    text-align: center;
 }
 
 #year-slider input[type="range"] {
-  width: 300px;
-  margin-top: 10px;
+    width: 300px;
+    margin-top: 10px;
 }
 
 /* region zoom control */
 #region-controls {
-  margin: 20px auto;
-  text-align: center;
+    margin: 20px auto;
+    text-align: center;
 }
 
 #region-controls select,
 #region-controls button {
-  font-size: 1rem;
-  padding: 6px 10px;
-  margin-left: 10px;
+    font-size: 1rem;
+    padding: 6px 10px;
+    margin-left: 10px;
 }
 
 /* country detail panel */
 #country-panel {
-  position: fixed;
-  top: 100px;
-  right: 30px;
-  width: 280px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  padding: 20px;
-  z-index: 20;
-  display: none;
-  text-align: left;
-  border-radius: 6px;
-  padding-bottom: 10px;
+    position: fixed;
+    top: 100px;
+    right: 30px;
+    width: 280px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 20;
+    display: none;
+    text-align: left;
+    border-radius: 6px;
+    padding-bottom: 10px;
 }
 
 #country-panel button#close-panel {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  border: none;
-  background: none;
-  font-size: 1.4rem;
-  cursor: pointer;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 1.4rem;
+    cursor: pointer;
 }
 
 #country-panel.visible {
-  display: block;
+    display: block;
 }
 
 /* trend chart inside the panel */
 #trend-chart {
-  width: 100%;
-  height: 200px;
-  margin-top: 10px;
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+}
+
+#pattern {
+    background-color: #fefff9;
+    opacity: 0.2;
+    background-image: linear-gradient(#d2e0c9 2.2px, transparent 2.2px), linear-gradient(90deg, #d2e0c9 2.2px, transparent 2.2px), linear-gradient(#d2e0c9 1.1px, transparent 1.1px), linear-gradient(90deg, #d2e0c9 1.1px, #fefff9 1.1px);
+    background-size: 55px 55px, 55px 55px, 11px 11px, 11px 11px;
+    background-position: -2.2px -2.2px, -2.2px -2.2px, -1.1px -1.1px, -1.1px -1.1px;
 }

@@ -31,8 +31,11 @@ const path = d3.geoPath().projection(projection);
 const svg = d3.select("#map-container")
     .html("") // clear placeholder
     .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .style("width", "100%")
+    .style("height", "100%")
+
 
 // load csv and return data lookup object
 async function loadAllData() {
@@ -220,92 +223,92 @@ function fmt(value, suffix = '', money = false) {
 
 // draw multi-series trend chart for the selected country
 function drawTrendChart(code, data) {
-  const container = d3.select("#trend-chart");
-  container.html(""); // clear previous chart
+    const container = d3.select("#trend-chart");
+    container.html(""); // clear previous chart
 
-  // panel-inner dimensions
-  const margin = { top: 20, right: 20, bottom: 30, left: 40 };
-  const width = parseInt(container.style("width")) - margin.left - margin.right;
-  const height = parseInt(container.style("height")) - margin.top - margin.bottom;
+    // panel-inner dimensions
+    const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+    const width = parseInt(container.style("width")) - margin.left - margin.right;
+    const height = parseInt(container.style("height")) - margin.top - margin.bottom;
 
-  // years to plot
-  const years = d3.range(2010, 2021);
+    // years to plot
+    const years = d3.range(2010, 2021);
 
-  // which metrics to show
-  const metrics = [
-    { key: "migration", label: "migrant workers (%)" },
-    { key: "experience", label: "patient experience (/10)" },
-    { key: "health", label: "perceived health (%)" },
-    { key: "life", label: "life expectancy (yrs)" }
-  ];
+    // which metrics to show
+    const metrics = [
+        { key: "migration", label: "migrant workers (%)" },
+        { key: "experience", label: "patient experience (/10)" },
+        { key: "health", label: "perceived health (%)" },
+        { key: "life", label: "life expectancy (yrs)" }
+    ];
 
-  // build dataset: array of { year, migration, experience, health, life }
-  const seriesData = years.map(year => {
-    return metrics.reduce((obj, m) => {
-      obj[m.key] = data[m.key][code]?.[year] ?? null;
-      return obj;
-    }, { year });
-  });
+    // build dataset: array of { year, migration, experience, health, life }
+    const seriesData = years.map(year => {
+        return metrics.reduce((obj, m) => {
+            obj[m.key] = data[m.key][code]?.[year] ?? null;
+            return obj;
+        }, { year });
+    });
 
-  // x-scale: years
-  const x = d3.scaleLinear()
-    .domain(d3.extent(years))
-    .range([0, width]);
+    // x-scale: years
+    const x = d3.scaleLinear()
+        .domain(d3.extent(years))
+        .range([0, width]);
 
-  // y-scale: find min & max across all series
-  const allValues = seriesData.flatMap(d =>
-    metrics.map(m => d[m.key]).filter(v => v != null)
-  );
-  const y = d3.scaleLinear()
-    .domain([d3.min(allValues), d3.max(allValues)])
-    .nice()
-    .range([height, 0]);
+    // y-scale: find min & max across all series
+    const allValues = seriesData.flatMap(d =>
+        metrics.map(m => d[m.key]).filter(v => v != null)
+    );
+    const y = d3.scaleLinear()
+        .domain([d3.min(allValues), d3.max(allValues)])
+        .nice()
+        .range([height, 0]);
 
-  // color for each series
-  const color = d3.scaleOrdinal()
-    .domain(metrics.map(m => m.key))
-    .range(d3.schemeCategory10);
+    // color for each series
+    const color = d3.scaleOrdinal()
+        .domain(metrics.map(m => m.key))
+        .range(d3.schemeCategory10);
 
-  // line generator
-  const line = key => d3.line()
-    .defined(d => d[key] != null)
-    .x(d => x(d.year))
-    .y(d => y(d[key]));
+    // line generator
+    const line = key => d3.line()
+        .defined(d => d[key] != null)
+        .x(d => x(d.year))
+        .y(d => y(d[key]));
 
-  // create svg
-  const svg = container.append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform", `translate(${margin.left},${margin.top})`);
+    // create svg
+    const svg = container.append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
 
-  // axes
-  svg.append("g")
-    .attr("transform", `translate(0,${height})`)
-    .call(d3.axisBottom(x).ticks(5).tickFormat(d3.format("d")));
-  svg.append("g")
-    .call(d3.axisLeft(y).ticks(5));
+    // axes
+    svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x).ticks(5).tickFormat(d3.format("d")));
+    svg.append("g")
+        .call(d3.axisLeft(y).ticks(5));
 
-  // draw each line
-  metrics.forEach(m => {
-    svg.append("path")
-      .datum(seriesData)
-      .attr("fill", "none")
-      .attr("stroke", color(m.key))
-      .attr("stroke-width", 1.5)
-      .attr("d", line(m.key));
+    // draw each line
+    metrics.forEach(m => {
+        svg.append("path")
+            .datum(seriesData)
+            .attr("fill", "none")
+            .attr("stroke", color(m.key))
+            .attr("stroke-width", 1.5)
+            .attr("d", line(m.key));
 
-    // add label at end of line
-    const last = seriesData[seriesData.length - 1];
-    if (last[m.key] != null) {
-      svg.append("text")
-        .attr("x", x(last.year) + 4)
-        .attr("y", y(last[m.key]))
-        .attr("dy", "0.35em")
-        .style("font-size", "0.75rem")
-        .style("fill", color(m.key))
-        .text(m.label);
-    }
-  });
+        // add label at end of line
+        const last = seriesData[seriesData.length - 1];
+        if (last[m.key] != null) {
+            svg.append("text")
+                .attr("x", x(last.year) + 4)
+                .attr("y", y(last[m.key]))
+                .attr("dy", "0.35em")
+                .style("font-size", "0.75rem")
+                .style("fill", color(m.key))
+                .text(m.label);
+        }
+    });
 }
 
