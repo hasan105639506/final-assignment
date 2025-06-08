@@ -260,6 +260,10 @@ function drawTrendChart(code, data, focusKey = null) {// Draw the trend chart fo
     });
 }
 
+const statColors = d3.scaleOrdinal()
+    .domain(["migration", "experience", "health", "life", "employment", "mortality"])
+    .range(d3.schemeCategory10);
+
 const keyLabels = {// Labels for each key in the data
     migration: "Migrant Health Workers",
     life: "Life Expectancy",
@@ -309,11 +313,12 @@ function updateCountryPanel(code, name, data) {
     const cardsHTML = displayKeys.map(key => {
         const val = data[key][code]?.[year];
         const value = fmt(val, keySuffixes[key], key === "pay");
-        return `<div class="stat-card" data-key="${key}">${keyLabels[key]}<br><strong>${value}</strong></div>`;
+        const color = statColors(key);
+        return `<div class="stat-card" data-key="${key}" style="border-left: 6px solid ${color};">${keyLabels[key]}<br><strong>${value}</strong></div>`;
     }).join("");
 
     document.getElementById("stat-cards").innerHTML = cardsHTML;
-    document.getElementById("stat-explanation").textContent = "click a card to learn what it means";
+    document.getElementById("stat-explanation").textContent = "Click a card to learn what it means";
 
     let selectedKey = null;
 

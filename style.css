@@ -260,42 +260,48 @@ footer a {
 }
 
 #country-header h3 {
-  margin-top: 0;
-  font-size: 1.5rem;
-  text-align: left;
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-align: left;
 }
 
 #stat-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 12px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 10px;
+    margin: 12px 0;
 }
 
 .stat-card {
-  flex: 1 1 45%;
-  background: #f3f6fa;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border: 1px solid transparent;
-  text-align: center;
-  transition: all 0.2s ease;
+    min-width: 0; /* allow shrinking */
+    max-width: none;
+    box-sizing: border-box;
+    margin-bottom: 0; /* grid handles spacing */
+    padding: 10px 12px 10px 16px;
+    background: #fff;
+    border-radius: 6px;
+    border-left: 6px solid #ccc;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .stat-card:hover {
-  background-color: #e2eefc;
+    background-color: #e2eefc;
 }
 
 .stat-card.active {
-  border: 2px solid #007bff;
-  background-color: #d9ebff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+    background: #f7faff;
 }
 
 #stat-explanation {
-  font-size: 0.9rem;
-  color: #444;
-  margin-bottom: 12px;
-  text-align: left;
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 12px;
+    text-align: left;
 }
