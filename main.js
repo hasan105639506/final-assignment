@@ -51,6 +51,7 @@ async function loadMigrationData() {
     return lookup;
 }
 
+// zoom to specific region based on selection
 function zoomToRegion(region) {
     const bounds = regionBounds[region];
     const g = svg.select("g");
@@ -73,7 +74,6 @@ function zoomToRegion(region) {
     g.transition().duration(750)
         .attr("transform", `translate(${translate}) scale(${scale})`);
 }
-
 
 // load map and data in parallel
 Promise.all([
@@ -128,7 +128,22 @@ Promise.all([
             .on("mouseout", function () {
                 d3.select("#tooltip").classed("hidden", true);
                 d3.select(this).attr("stroke-width", 0.5);
+            })
+            .on("click", function (event, d) {
+                const code = idToAlpha3[d.id];
+                const val = migrationData[code]?.[currentYear];
+                const name = d.properties.name || code;
+
+                const html = `
+                    <h3>${name}</h3>
+                    <p><strong>year:</strong> ${currentYear}</p>
+                    <p><strong>migrant health workers:</strong> ${val != null ? val.toFixed(1) + '%' : 'no data'}</p>
+                    `;
+
+                d3.select("#country-content").html(html);
+                d3.select("#country-panel").classed("visible", true);
             });
+
 
         // update map when year changes
         d3.select("#slider").on("input", function () {
@@ -157,8 +172,13 @@ Promise.all([
             zoomToRegion("World");
         });
 
-
         console.log("map rendered with tooltips");
     }).catch(error => {
         console.error("error loading map or data:", error);
     });
+
+// close detail panel
+document.getElementById("close-panel").addEventListener("click", () => {
+    d3.select("#country-panel").classed("visible", false);
+});
+

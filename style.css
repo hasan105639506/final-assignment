@@ -74,3 +74,33 @@ header p {
   padding: 6px 10px;
   margin-left: 10px;
 }
+
+/* country detail panel */
+#country-panel {
+  position: fixed;
+  top: 100px;
+  right: 30px;
+  width: 280px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  z-index: 20;
+  display: none;
+  text-align: left;
+  border-radius: 6px;
+}
+
+#country-panel button#close-panel {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+#country-panel.visible {
+  display: block;
+}

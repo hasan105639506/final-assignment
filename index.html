@@ -43,7 +43,7 @@
             </select>
             <button id="reset-view">🌍 reset</button>
         </div>
-        
+
         <!-- slider to change which years data is shown -->
         <div id="year-slider">
             <label for="slider">year: <span id="year-label">2015</span></label>
@@ -53,6 +53,12 @@
 
     <!-- container for tooltip (initially hidden) -->
     <div id="tooltip" class="hidden"></div>
+
+    <!-- container for country details panel (initially hidden) -->
+    <div id="country-panel" class="hidden">
+        <button id="close-panel">×</button>
+        <div id="country-content"></div>
+    </div>
 
     <!-- load the main javascript module -->
     <script type="module" src="main.js"></script>
