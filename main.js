@@ -42,7 +42,7 @@ async function loadAllData() {
     const files = await Promise.all([
         d3.csv("data/migration.csv"),
         d3.csv("data/life_expectancy.csv"),
-        d3.csv("data/patient_experience.csv"),
+        d3.csv("data/health_insurance.csv"),
         d3.csv("data/perceived_health.csv"),
         d3.csv("data/provider_ratio.csv"),
         d3.csv("data/remuneration.csv"),
@@ -50,7 +50,7 @@ async function loadAllData() {
         d3.csv("data/treatable_mortality.csv")
     ]);
 
-    const [migration, life, experience, health, ratio, pay, employment, mortality] = files;
+    const [migration, life, insurance, health, ratio, pay, employment, mortality] = files;
 
     const structure = dataset => {
         const out = {};
@@ -64,7 +64,7 @@ async function loadAllData() {
     return {
         migration: structure(migration),
         life: structure(life),
-        experience: structure(experience),
+        insurance: structure(insurance),
         health: structure(health),
         ratio: structure(ratio),
         pay: structure(pay),
@@ -189,7 +189,7 @@ function drawTrendChart(code, data, focusKey = null) {// Draw the trend chart fo
     const years = d3.range(2005, 2022);
     const metrics = [
         { key: "migration", label: "migrant workers (%)" },
-        { key: "experience", label: "patient experience (/10)" },
+        { key: "insurance", label: "health insurance (%)" },
         { key: "health", label: "perceived health (%)" },
         { key: "life", label: "life expectancy (yrs)" },
         { key: "employment", label: "healthcare employment (%)" },
@@ -218,7 +218,6 @@ function drawTrendChart(code, data, focusKey = null) {// Draw the trend chart fo
     svg.append("g")
         .attr("transform", `translate(0,${height})`)
         .call(d3.axisBottom(x).ticks(5).tickFormat(d3.format("d")));
-    svg.append("g").call(d3.axisLeft(y).ticks(5));
 
     // vertical reference line for current year
     svg.append("line")
@@ -235,7 +234,7 @@ function drawTrendChart(code, data, focusKey = null) {// Draw the trend chart fo
         .attr("x", x(currentYear) + 4)
         .attr("y", 10)
         .text(currentYear)
-        .style("font-size", "10px")
+        .style("font-size", "14px")
         .style("fill", "#333");
 
     metrics.forEach(m => {
@@ -246,28 +245,17 @@ function drawTrendChart(code, data, focusKey = null) {// Draw the trend chart fo
             .attr("stroke-width", (focusKey && m.key !== focusKey) ? 0.7 : 2)
             .attr("stroke-opacity", (focusKey && m.key !== focusKey) ? 0.4 : 1)
             .attr("d", line(m.key));
-
-        const last = seriesData[seriesData.length - 1];
-        if (last[m.key] != null && (!focusKey || m.key === focusKey)) {
-            svg.append("text")
-                .attr("x", x(last.year) + 4)
-                .attr("y", y(last[m.key]))
-                .attr("dy", "0.35em")
-                .style("font-size", "0.75rem")
-                .style("fill", color(m.key))
-                .text(m.label);
-        }
     });
 }
 
 const statColors = d3.scaleOrdinal()
-    .domain(["migration", "experience", "health", "life", "employment", "mortality"])
+    .domain(["migration", "insurance", "health", "life", "employment", "mortality"])
     .range(d3.schemeCategory10);
 
 const keyLabels = {// Labels for each key in the data
     migration: "Migrant Health Workers",
     life: "Life Expectancy",
-    experience: "Patient Experience",
+    insurance: "Health Insurance",
     health: "Perceived Health",
     ratio: "Doctors/Nurses per 1,000",
     pay: "Remuneration",
@@ -278,7 +266,7 @@ const keyLabels = {// Labels for each key in the data
 const keySuffixes = { // Suffixes for each key in the data
     migration: '%',
     life: 'yrs',
-    experience: '/10',
+    insurance: '%',
     health: '%',
     ratio: '',
     pay: '$',
@@ -289,7 +277,7 @@ const keySuffixes = { // Suffixes for each key in the data
 const statDescriptions = {//    Descriptions for each key in the data
     migration: "The percentage of health workers who are foreign-born or trained abroad.",
     life: "The average life expectancy at birth.",
-    experience: "Patients’ ratings of their recent healthcare experience.",
+    insurance: "The percentage of the population with public or private health insurance.",
     health: "The proportion of people reporting good or very good health.",
     ratio: "Doctors and nurses per 1,000 people.",
     pay: "Average annual income of healthcare workers.",
@@ -308,7 +296,7 @@ function updateCountryPanel(code, name, data) {
     document.getElementById("country-header").innerHTML =
         `<h3>${name} <span style="font-weight:normal; color:#555;">(${year})</span></h3>`;
 
-    const displayKeys = ["migration", "life", "employment", "mortality", "health", "experience"];
+    const displayKeys = ["migration", "life", "employment", "mortality", "health", "insurance"];
 
     const cardsHTML = displayKeys.map(key => {
         const val = data[key][code]?.[year];

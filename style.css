@@ -118,7 +118,7 @@ header p {
 /* country detail panel */
 #country-panel {
     width: 30%;
-    padding: 24px 28px;
+    padding: 24px;
     background: white;
     border-left: 1px solid #ccc;
     height: 70vh;
@@ -155,9 +155,9 @@ header p {
 
 /* trend chart inside the panel */
 #trend-chart {
-    width: 100%;
+    width: 95%;
     height: 280px;
-    margin-top: 12px;
+    margin-top: 18px;
 }
 
 #pattern {
@@ -305,3 +305,4 @@ footer a {
     margin-bottom: 12px;
     text-align: left;
 }
+

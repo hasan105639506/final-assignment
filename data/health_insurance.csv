@@ -1,0 +1,658 @@
+country_code,country_name,year,value
+AUS,Australia,2005,100.0
+AUS,Australia,2006,100.0
+AUS,Australia,2007,100.0
+AUS,Australia,2008,100.0
+AUS,Australia,2009,100.0
+AUS,Australia,2010,100.0
+AUS,Australia,2011,100.0
+AUS,Australia,2012,100.0
+AUS,Australia,2013,100.0
+AUS,Australia,2014,100.0
+AUS,Australia,2015,100.0
+AUS,Australia,2016,100.0
+AUS,Australia,2017,100.0
+AUS,Australia,2018,100.0
+AUS,Australia,2019,100.0
+AUS,Australia,2020,100.0
+AUS,Australia,2021,100.0
+AUS,Australia,2022,100.0
+AUT,Austria,2005,98.0
+AUT,Austria,2006,98.5
+AUT,Austria,2007,98.7
+AUT,Austria,2008,98.8
+AUT,Austria,2009,99.0
+AUT,Austria,2010,99.3
+AUT,Austria,2011,99.9
+AUT,Austria,2012,99.9
+AUT,Austria,2013,99.9
+AUT,Austria,2014,99.9
+AUT,Austria,2015,99.9
+AUT,Austria,2016,99.9
+AUT,Austria,2017,99.9
+AUT,Austria,2018,99.9
+AUT,Austria,2019,99.9
+AUT,Austria,2020,99.9
+AUT,Austria,2021,99.9
+AUT,Austria,2022,99.9
+BEL,Belgium,2005,99.0
+BEL,Belgium,2006,99.0
+BEL,Belgium,2007,99.0
+BEL,Belgium,2008,99.0
+BEL,Belgium,2009,99.0
+BEL,Belgium,2010,99.0
+BEL,Belgium,2011,99.0
+BEL,Belgium,2012,99.0
+BEL,Belgium,2013,99.0
+BEL,Belgium,2014,99.0
+BEL,Belgium,2015,99.0
+BEL,Belgium,2016,99.0
+BEL,Belgium,2017,98.7
+BEL,Belgium,2018,98.7
+BEL,Belgium,2019,98.6
+BEL,Belgium,2020,98.6
+BEL,Belgium,2021,98.6
+BEL,Belgium,2022,98.5
+BGR,Bulgaria,2015,88.6
+BGR,Bulgaria,2016,87.8
+BGR,Bulgaria,2017,88.0
+BGR,Bulgaria,2018,88.2
+BGR,Bulgaria,2019,88.6
+BGR,Bulgaria,2020,88.0
+BGR,Bulgaria,2021,88.2
+BGR,Bulgaria,2022,93.5
+CAN,Canada,2005,100.0
+CAN,Canada,2006,100.0
+CAN,Canada,2007,100.0
+CAN,Canada,2008,100.0
+CAN,Canada,2009,100.0
+CAN,Canada,2010,100.0
+CAN,Canada,2011,100.0
+CAN,Canada,2012,100.0
+CAN,Canada,2013,100.0
+CAN,Canada,2014,100.0
+CAN,Canada,2015,100.0
+CAN,Canada,2016,100.0
+CAN,Canada,2017,100.0
+CAN,Canada,2018,100.0
+CAN,Canada,2019,100.0
+CAN,Canada,2020,100.0
+CAN,Canada,2021,100.0
+CAN,Canada,2022,100.0
+CHE,Switzerland,2005,100.0
+CHE,Switzerland,2006,100.0
+CHE,Switzerland,2007,100.0
+CHE,Switzerland,2008,100.0
+CHE,Switzerland,2009,100.0
+CHE,Switzerland,2010,100.0
+CHE,Switzerland,2011,100.0
+CHE,Switzerland,2012,100.0
+CHE,Switzerland,2013,100.0
+CHE,Switzerland,2014,100.0
+CHE,Switzerland,2015,100.0
+CHE,Switzerland,2016,100.0
+CHE,Switzerland,2017,100.0
+CHE,Switzerland,2018,100.0
+CHE,Switzerland,2019,100.0
+CHE,Switzerland,2020,100.0
+CHE,Switzerland,2021,100.0
+CHE,Switzerland,2022,100.0
+CHL,Chile,2005,68.9
+CHL,Chile,2006,72.5
+CHL,Chile,2007,74.0
+CHL,Chile,2008,75.6
+CHL,Chile,2009,74.6
+CHL,Chile,2010,74.4
+CHL,Chile,2011,76.5
+CHL,Chile,2012,76.7
+CHL,Chile,2013,76.4
+CHL,Chile,2014,75.7
+CHL,Chile,2015,73.8
+CHL,Chile,2016,75.5
+CHL,Chile,2017,75.5
+CHL,Chile,2018,75.2
+CHL,Chile,2019,77.7
+CHL,Chile,2020,77.8
+CHL,Chile,2021,77.4
+CHL,Chile,2022,78.7
+COL,Colombia,2005,82.6
+COL,Colombia,2006,86.6
+COL,Colombia,2007,90.5
+COL,Colombia,2008,90.3
+COL,Colombia,2009,91.0
+COL,Colombia,2010,93.6
+COL,Colombia,2011,96.4
+COL,Colombia,2012,96.4
+COL,Colombia,2013,96.0
+COL,Colombia,2014,96.6
+COL,Colombia,2015,97.6
+COL,Colombia,2016,95.7
+COL,Colombia,2017,94.9
+COL,Colombia,2018,94.7
+CRI,Costa Rica,2009,89.7
+CRI,Costa Rica,2010,91.9
+CRI,Costa Rica,2011,93.7
+CRI,Costa Rica,2012,93.6
+CRI,Costa Rica,2013,94.4
+CRI,Costa Rica,2014,94.7
+CRI,Costa Rica,2015,94.9
+CRI,Costa Rica,2016,95.0
+CRI,Costa Rica,2017,95.4
+CRI,Costa Rica,2018,91.6
+CRI,Costa Rica,2019,91.1
+CRI,Costa Rica,2020,91.8
+CRI,Costa Rica,2021,90.9
+CRI,Costa Rica,2022,92.2
+CZE,Czechia,2005,100.0
+CZE,Czechia,2006,100.0
+CZE,Czechia,2007,100.0
+CZE,Czechia,2008,100.0
+CZE,Czechia,2009,100.0
+CZE,Czechia,2010,100.0
+CZE,Czechia,2011,100.0
+CZE,Czechia,2012,100.0
+CZE,Czechia,2013,100.0
+CZE,Czechia,2014,100.0
+CZE,Czechia,2015,100.0
+CZE,Czechia,2016,100.0
+CZE,Czechia,2017,100.0
+CZE,Czechia,2018,100.0
+CZE,Czechia,2019,100.0
+CZE,Czechia,2020,100.0
+CZE,Czechia,2021,100.0
+CZE,Czechia,2022,100.0
+DEU,Germany,2005,89.5
+DEU,Germany,2006,89.3
+DEU,Germany,2007,89.2
+DEU,Germany,2008,89.3
+DEU,Germany,2009,99.8
+DEU,Germany,2010,99.8
+DEU,Germany,2011,99.8
+DEU,Germany,2012,99.9
+DEU,Germany,2013,99.9
+DEU,Germany,2014,99.9
+DEU,Germany,2015,99.9
+DEU,Germany,2016,99.9
+DEU,Germany,2017,99.9
+DEU,Germany,2018,99.9
+DEU,Germany,2019,99.9
+DEU,Germany,2020,99.9
+DEU,Germany,2021,99.9
+DEU,Germany,2022,99.9
+DNK,Denmark,2005,100.0
+DNK,Denmark,2006,100.0
+DNK,Denmark,2007,100.0
+DNK,Denmark,2008,100.0
+DNK,Denmark,2009,100.0
+DNK,Denmark,2010,100.0
+DNK,Denmark,2011,100.0
+DNK,Denmark,2012,100.0
+DNK,Denmark,2013,100.0
+DNK,Denmark,2014,100.0
+DNK,Denmark,2015,100.0
+DNK,Denmark,2016,100.0
+DNK,Denmark,2017,100.0
+DNK,Denmark,2018,100.0
+DNK,Denmark,2019,100.0
+DNK,Denmark,2020,100.0
+DNK,Denmark,2021,100.0
+DNK,Denmark,2022,100.0
+ESP,Spain,2006,98.3
+ESP,Spain,2011,99.0
+ESP,Spain,2014,99.1
+ESP,Spain,2017,99.0
+ESP,Spain,2018,100.0
+ESP,Spain,2019,100.0
+ESP,Spain,2020,100.0
+ESP,Spain,2021,100.0
+ESP,Spain,2022,100.0
+EST,Estonia,2005,94.1
+EST,Estonia,2006,95.2
+EST,Estonia,2007,96.2
+EST,Estonia,2008,96.0
+EST,Estonia,2009,95.7
+EST,Estonia,2010,94.5
+EST,Estonia,2011,94.0
+EST,Estonia,2012,93.7
+EST,Estonia,2013,93.6
+EST,Estonia,2014,93.9
+EST,Estonia,2015,94.0
+EST,Estonia,2016,94.0
+EST,Estonia,2017,94.1
+EST,Estonia,2018,94.5
+EST,Estonia,2019,95.0
+EST,Estonia,2020,95.2
+EST,Estonia,2021,95.9
+EST,Estonia,2022,96.1
+FIN,Finland,2005,100.0
+FIN,Finland,2006,100.0
+FIN,Finland,2007,100.0
+FIN,Finland,2008,100.0
+FIN,Finland,2009,100.0
+FIN,Finland,2010,100.0
+FIN,Finland,2011,100.0
+FIN,Finland,2012,100.0
+FIN,Finland,2013,100.0
+FIN,Finland,2014,100.0
+FIN,Finland,2015,100.0
+FIN,Finland,2016,100.0
+FIN,Finland,2017,100.0
+FIN,Finland,2018,100.0
+FIN,Finland,2019,100.0
+FIN,Finland,2020,100.0
+FIN,Finland,2021,100.0
+FIN,Finland,2022,100.0
+FRA,France,2005,99.9
+FRA,France,2006,99.9
+FRA,France,2007,99.9
+FRA,France,2008,99.9
+FRA,France,2009,99.9
+FRA,France,2010,99.9
+FRA,France,2011,99.9
+FRA,France,2012,99.9
+FRA,France,2013,99.9
+FRA,France,2014,99.9
+FRA,France,2015,99.9
+FRA,France,2016,99.9
+FRA,France,2017,99.9
+FRA,France,2018,99.9
+FRA,France,2019,99.9
+FRA,France,2020,99.9
+FRA,France,2021,99.9
+FRA,France,2022,99.9
+GBR,United Kingdom,2005,100.0
+GBR,United Kingdom,2006,100.0
+GBR,United Kingdom,2007,100.0
+GBR,United Kingdom,2008,100.0
+GBR,United Kingdom,2009,100.0
+GBR,United Kingdom,2010,100.0
+GBR,United Kingdom,2011,100.0
+GBR,United Kingdom,2012,100.0
+GBR,United Kingdom,2013,100.0
+GBR,United Kingdom,2014,100.0
+GBR,United Kingdom,2015,100.0
+GBR,United Kingdom,2016,100.0
+GBR,United Kingdom,2017,100.0
+GBR,United Kingdom,2018,100.0
+GBR,United Kingdom,2019,100.0
+GBR,United Kingdom,2020,100.0
+GBR,United Kingdom,2021,100.0
+GBR,United Kingdom,2022,100.0
+GRC,Greece,2005,100.0
+GRC,Greece,2006,100.0
+GRC,Greece,2007,100.0
+GRC,Greece,2008,100.0
+GRC,Greece,2016,100.0
+GRC,Greece,2017,100.0
+GRC,Greece,2018,100.0
+GRC,Greece,2019,100.0
+GRC,Greece,2020,100.0
+GRC,Greece,2021,100.0
+GRC,Greece,2022,100.0
+HUN,Hungary,2005,100.0
+HUN,Hungary,2006,100.0
+HUN,Hungary,2007,100.0
+HUN,Hungary,2008,97.0
+HUN,Hungary,2009,97.0
+HUN,Hungary,2010,97.0
+HUN,Hungary,2011,97.0
+HUN,Hungary,2012,96.0
+HUN,Hungary,2013,96.0
+HUN,Hungary,2014,95.0
+HUN,Hungary,2015,95.0
+HUN,Hungary,2016,95.0
+HUN,Hungary,2017,94.0
+HUN,Hungary,2018,94.0
+HUN,Hungary,2019,94.0
+HUN,Hungary,2020,95.0
+HUN,Hungary,2021,96.0
+HUN,Hungary,2022,96.0
+IRL,Ireland,2005,100.0
+IRL,Ireland,2006,100.0
+IRL,Ireland,2007,100.0
+IRL,Ireland,2008,100.0
+IRL,Ireland,2009,100.0
+IRL,Ireland,2010,100.0
+IRL,Ireland,2011,100.0
+IRL,Ireland,2012,100.0
+IRL,Ireland,2013,100.0
+IRL,Ireland,2014,100.0
+IRL,Ireland,2015,100.0
+IRL,Ireland,2016,100.0
+IRL,Ireland,2017,100.0
+IRL,Ireland,2018,100.0
+IRL,Ireland,2019,100.0
+IRL,Ireland,2020,100.0
+IRL,Ireland,2021,100.0
+IRL,Ireland,2022,100.0
+ISL,Iceland,2005,99.7
+ISL,Iceland,2006,99.8
+ISL,Iceland,2007,99.6
+ISL,Iceland,2008,99.8
+ISL,Iceland,2009,99.9
+ISL,Iceland,2010,99.8
+ISL,Iceland,2011,99.8
+ISL,Iceland,2012,99.8
+ISL,Iceland,2013,99.8
+ISL,Iceland,2014,99.8
+ISL,Iceland,2015,99.7
+ISL,Iceland,2016,99.6
+ISL,Iceland,2017,99.5
+ISL,Iceland,2018,99.6
+ISL,Iceland,2019,99.6
+ISL,Iceland,2020,99.6
+ISL,Iceland,2021,99.6
+ISR,Israel,2005,100.0
+ISR,Israel,2006,100.0
+ISR,Israel,2007,100.0
+ISR,Israel,2008,100.0
+ISR,Israel,2009,100.0
+ISR,Israel,2010,100.0
+ISR,Israel,2011,100.0
+ISR,Israel,2012,100.0
+ISR,Israel,2013,100.0
+ISR,Israel,2014,100.0
+ISR,Israel,2015,100.0
+ISR,Israel,2016,100.0
+ISR,Israel,2017,100.0
+ISR,Israel,2018,100.0
+ISR,Israel,2019,100.0
+ISR,Israel,2020,100.0
+ISR,Israel,2021,100.0
+ISR,Israel,2022,100.0
+ITA,Italy,2005,100.0
+ITA,Italy,2006,100.0
+ITA,Italy,2007,100.0
+ITA,Italy,2008,100.0
+ITA,Italy,2009,100.0
+ITA,Italy,2010,100.0
+ITA,Italy,2011,100.0
+ITA,Italy,2012,100.0
+ITA,Italy,2013,100.0
+ITA,Italy,2014,100.0
+ITA,Italy,2015,100.0
+ITA,Italy,2016,100.0
+ITA,Italy,2017,100.0
+ITA,Italy,2018,100.0
+ITA,Italy,2019,100.0
+ITA,Italy,2020,100.0
+ITA,Italy,2021,100.0
+ITA,Italy,2022,100.0
+JPN,Japan,2005,100.0
+JPN,Japan,2006,100.0
+JPN,Japan,2007,100.0
+JPN,Japan,2008,100.0
+JPN,Japan,2009,100.0
+JPN,Japan,2010,100.0
+JPN,Japan,2011,100.0
+JPN,Japan,2012,100.0
+JPN,Japan,2013,100.0
+JPN,Japan,2014,100.0
+JPN,Japan,2015,100.0
+JPN,Japan,2016,100.0
+JPN,Japan,2017,100.0
+JPN,Japan,2018,100.0
+JPN,Japan,2019,100.0
+JPN,Japan,2020,100.0
+JPN,Japan,2021,100.0
+KOR,Korea,2005,100.0
+KOR,Korea,2006,100.0
+KOR,Korea,2007,100.0
+KOR,Korea,2008,100.0
+KOR,Korea,2009,100.0
+KOR,Korea,2010,100.0
+KOR,Korea,2011,100.0
+KOR,Korea,2012,100.0
+KOR,Korea,2013,100.0
+KOR,Korea,2014,100.0
+KOR,Korea,2015,100.0
+KOR,Korea,2016,100.0
+KOR,Korea,2017,100.0
+KOR,Korea,2018,100.0
+KOR,Korea,2019,100.0
+KOR,Korea,2020,100.0
+KOR,Korea,2021,100.0
+KOR,Korea,2022,100.0
+LTU,Lithuania,2010,90.9
+LTU,Lithuania,2011,91.4
+LTU,Lithuania,2012,91.9
+LTU,Lithuania,2013,91.8
+LTU,Lithuania,2014,92.0
+LTU,Lithuania,2015,92.4
+LTU,Lithuania,2016,92.5
+LTU,Lithuania,2017,93.9
+LTU,Lithuania,2018,98.1
+LTU,Lithuania,2019,98.7
+LTU,Lithuania,2020,99.1
+LTU,Lithuania,2021,98.8
+LTU,Lithuania,2022,98.9
+LUX,Luxembourg,2017,100.0
+LUX,Luxembourg,2018,100.0
+LUX,Luxembourg,2019,100.0
+LUX,Luxembourg,2020,100.0
+LUX,Luxembourg,2021,100.0
+LUX,Luxembourg,2022,100.0
+LVA,Latvia,2017,100.0
+LVA,Latvia,2018,100.0
+LVA,Latvia,2019,100.0
+LVA,Latvia,2020,100.0
+LVA,Latvia,2021,100.0
+LVA,Latvia,2022,100.0
+MEX,Mexico,2005,55.5
+MEX,Mexico,2006,58.8
+MEX,Mexico,2007,63.6
+MEX,Mexico,2008,67.5
+MEX,Mexico,2009,70.1
+MEX,Mexico,2010,82.4
+MEX,Mexico,2011,89.2
+MEX,Mexico,2012,89.6
+MEX,Mexico,2013,91.6
+MEX,Mexico,2014,92.9
+MEX,Mexico,2015,92.3
+MEX,Mexico,2016,89.8
+MEX,Mexico,2017,89.3
+MEX,Mexico,2018,88.3
+MEX,Mexico,2019,80.6
+MEX,Mexico,2020,72.4
+MEX,Mexico,2021,77.4
+NLD,Netherlands,2005,62.1
+NLD,Netherlands,2006,99.5
+NLD,Netherlands,2007,99.6
+NLD,Netherlands,2008,99.6
+NLD,Netherlands,2009,99.6
+NLD,Netherlands,2010,99.6
+NLD,Netherlands,2011,99.6
+NLD,Netherlands,2012,99.7
+NLD,Netherlands,2013,99.8
+NLD,Netherlands,2014,99.8
+NLD,Netherlands,2015,99.8
+NLD,Netherlands,2016,99.9
+NLD,Netherlands,2017,99.9
+NLD,Netherlands,2018,99.9
+NLD,Netherlands,2019,99.9
+NLD,Netherlands,2020,99.9
+NLD,Netherlands,2021,99.9
+NLD,Netherlands,2022,99.9
+NOR,Norway,2005,100.0
+NOR,Norway,2006,100.0
+NOR,Norway,2007,100.0
+NOR,Norway,2008,100.0
+NOR,Norway,2009,100.0
+NOR,Norway,2010,100.0
+NOR,Norway,2011,100.0
+NOR,Norway,2012,100.0
+NOR,Norway,2013,100.0
+NOR,Norway,2014,100.0
+NOR,Norway,2015,100.0
+NOR,Norway,2016,100.0
+NOR,Norway,2017,100.0
+NOR,Norway,2018,100.0
+NOR,Norway,2019,100.0
+NOR,Norway,2020,100.0
+NOR,Norway,2021,100.0
+NOR,Norway,2022,100.0
+NZL,New Zealand,2005,100.0
+NZL,New Zealand,2006,100.0
+NZL,New Zealand,2007,100.0
+NZL,New Zealand,2008,100.0
+NZL,New Zealand,2009,100.0
+NZL,New Zealand,2010,100.0
+NZL,New Zealand,2011,100.0
+NZL,New Zealand,2012,100.0
+NZL,New Zealand,2013,100.0
+NZL,New Zealand,2014,100.0
+NZL,New Zealand,2015,100.0
+NZL,New Zealand,2016,100.0
+NZL,New Zealand,2017,100.0
+NZL,New Zealand,2018,100.0
+NZL,New Zealand,2019,100.0
+NZL,New Zealand,2020,100.0
+NZL,New Zealand,2021,100.0
+NZL,New Zealand,2022,100.0
+POL,Poland,2005,97.3
+POL,Poland,2006,99.3
+POL,Poland,2007,98.1
+POL,Poland,2008,97.8
+POL,Poland,2009,97.6
+POL,Poland,2010,97.5
+POL,Poland,2011,96.6
+POL,Poland,2012,91.0
+POL,Poland,2013,91.6
+POL,Poland,2014,91.3
+POL,Poland,2015,91.0
+POL,Poland,2016,91.5
+POL,Poland,2017,92.6
+POL,Poland,2018,92.9
+POL,Poland,2019,93.4
+POL,Poland,2020,93.3
+POL,Poland,2021,94.0
+POL,Poland,2022,96.7
+PRT,Portugal,2005,100.0
+PRT,Portugal,2006,100.0
+PRT,Portugal,2007,100.0
+PRT,Portugal,2008,100.0
+PRT,Portugal,2009,100.0
+PRT,Portugal,2010,100.0
+PRT,Portugal,2011,100.0
+PRT,Portugal,2012,100.0
+PRT,Portugal,2013,100.0
+PRT,Portugal,2014,100.0
+PRT,Portugal,2015,100.0
+PRT,Portugal,2016,100.0
+PRT,Portugal,2017,100.0
+PRT,Portugal,2018,100.0
+PRT,Portugal,2019,100.0
+PRT,Portugal,2020,100.0
+PRT,Portugal,2021,100.0
+PRT,Portugal,2022,100.0
+ROU,Romania,2012,91.2
+ROU,Romania,2013,90.5
+ROU,Romania,2014,86.2
+ROU,Romania,2015,86.7
+ROU,Romania,2016,86.9
+ROU,Romania,2017,85.3
+ROU,Romania,2018,85.8
+ROU,Romania,2019,85.5
+ROU,Romania,2020,85.4
+ROU,Romania,2021,85.5
+ROU,Romania,2022,88.5
+RUS,Russia,2010,98.9
+RUS,Russia,2012,99.8
+RUS,Russia,2013,99.2
+RUS,Russia,2014,99.9
+RUS,Russia,2015,100.0
+RUS,Russia,2016,100.0
+RUS,Russia,2017,99.7
+RUS,Russia,2018,99.6
+RUS,Russia,2019,99.1
+RUS,Russia,2020,99.2
+SVK,Slovak Republic,2005,97.6
+SVK,Slovak Republic,2006,96.3
+SVK,Slovak Republic,2007,95.5
+SVK,Slovak Republic,2008,95.4
+SVK,Slovak Republic,2009,95.2
+SVK,Slovak Republic,2010,94.8
+SVK,Slovak Republic,2011,95.2
+SVK,Slovak Republic,2012,95.0
+SVK,Slovak Republic,2013,94.6
+SVK,Slovak Republic,2014,94.2
+SVK,Slovak Republic,2015,93.8
+SVK,Slovak Republic,2016,94.5
+SVK,Slovak Republic,2017,94.6
+SVK,Slovak Republic,2018,94.5
+SVK,Slovak Republic,2019,94.6
+SVK,Slovak Republic,2020,94.6
+SVK,Slovak Republic,2021,95.0
+SVK,Slovak Republic,2022,95.3
+SVN,Slovenia,2005,99.0
+SVN,Slovenia,2006,99.0
+SVN,Slovenia,2007,99.0
+SVN,Slovenia,2008,100.0
+SVN,Slovenia,2009,100.0
+SVN,Slovenia,2010,100.0
+SVN,Slovenia,2011,100.0
+SVN,Slovenia,2012,100.0
+SVN,Slovenia,2013,100.0
+SVN,Slovenia,2014,100.0
+SVN,Slovenia,2015,100.0
+SVN,Slovenia,2016,100.0
+SVN,Slovenia,2017,100.0
+SVN,Slovenia,2018,100.0
+SVN,Slovenia,2019,100.0
+SVN,Slovenia,2020,100.0
+SVN,Slovenia,2021,100.0
+SVN,Slovenia,2022,100.0
+SWE,Sweden,2005,100.0
+SWE,Sweden,2006,100.0
+SWE,Sweden,2007,100.0
+SWE,Sweden,2008,100.0
+SWE,Sweden,2009,100.0
+SWE,Sweden,2010,100.0
+SWE,Sweden,2011,100.0
+SWE,Sweden,2012,100.0
+SWE,Sweden,2013,100.0
+SWE,Sweden,2014,100.0
+SWE,Sweden,2015,100.0
+SWE,Sweden,2016,100.0
+SWE,Sweden,2017,100.0
+SWE,Sweden,2018,100.0
+SWE,Sweden,2019,100.0
+SWE,Sweden,2020,100.0
+SWE,Sweden,2021,100.0
+SWE,Sweden,2022,100.0
+TUR,Türkiye,2005,86.6
+TUR,Türkiye,2006,90.3
+TUR,Türkiye,2007,93.2
+TUR,Türkiye,2008,93.2
+TUR,Türkiye,2009,94.0
+TUR,Türkiye,2010,96.2
+TUR,Türkiye,2011,97.6
+TUR,Türkiye,2012,98.2
+TUR,Türkiye,2013,98.0
+TUR,Türkiye,2014,98.4
+TUR,Türkiye,2015,98.4
+TUR,Türkiye,2016,98.2
+TUR,Türkiye,2017,99.2
+TUR,Türkiye,2018,98.5
+TUR,Türkiye,2019,98.8
+TUR,Türkiye,2020,98.5
+TUR,Türkiye,2021,98.8
+TUR,Türkiye,2022,99.2
+USA,United States,2005,26.2
+USA,United States,2006,27.4
+USA,United States,2007,27.4
+USA,United States,2008,28.5
+USA,United States,2009,26.4
+USA,United States,2010,30.8
+USA,United States,2011,31.8
+USA,United States,2012,32.6
+USA,United States,2013,33.0
+USA,United States,2014,34.5
+USA,United States,2015,35.6
+USA,United States,2016,36.3
+USA,United States,2017,35.9
+USA,United States,2018,34.0
+USA,United States,2019,37.3
+USA,United States,2020,38.1
+USA,United States,2021,38.4
+USA,United States,2022,39.8
