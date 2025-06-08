@@ -27,33 +27,43 @@
         </p>
     </header>
 
-    <!-- container for map visualisation -->
-    <main>
+    <!-- container for map and side panel -->
+    <div id="main-container">
+        <!-- map wrapper to allow sliding -->
+        <div id="map-wrapper">
+            <main>
+                <!-- top controls -->
+                <div id="top-controls">
+                    <div id="region-buttons">
+                        <button data-region="World">World</button>
+                        <button data-region="Africa">Africa</button>
+                        <button data-region="Europe">Europe</button>
+                        <button data-region="MiddleEast">Middle East</button>
+                        <button data-region="Asia">Asia</button>
+                        <button data-region="Americas">Americas</button>
+                        <button data-region="Oceania">Oceania</button>
+                    </div>
+                    <div id="year-slider">
+                        <label for="slider">Year: <span id="year-label">2015</span></label>
+                        <input type="range" id="slider" min="2005" max="2022" step="1" value="2015">
+                    </div>
+                </div>
 
-        <!-- controls for selecting region and resetting view -->
-        <div id="top-controls">
-            <div id="region-buttons">
-                <button data-region="World">World</button>
-                <button data-region="Africa">Africa</button>
-                <button data-region="Europe">Europe</button>
-                <button data-region="MiddleEast">Middle East</button>
-                <button data-region="Asia">Asia</button>
-                <button data-region="Americas">Americas</button>
-                <button data-region="Oceania">Oceania</button>
-            </div>
-
-            <!-- slider to change the year-->
-            <div id="year-slider">
-                <label for="slider">Year: <span id="year-label">2015</span></label>
-                <input type="range" id="slider" min="2010" max="2020" step="1" value="2015">
-            </div>
-
+                <!-- map visualisation -->
+                <div id="map-container"></div>
+            </main>
         </div>
 
-        <!-- contains the actual map-->
-        <div id="map-container"></div>
+        <!-- fixed side panel -->
+        <div id="country-panel" class="hidden">
+            <button id="close-panel">×</button>
+            <div id="country-header"></div>
+            <div id="stat-cards"></div>
+            <div id="stat-explanation">click a card to learn what it means</div>
+            <div id="trend-chart"></div>
+        </div>
 
-    </main>
+    </div>
 
     <!-- container for tooltip (initially hidden) -->
     <div id="tooltip" class="hidden"></div>
@@ -61,7 +71,9 @@
     <!-- container for country details panel (initially hidden) -->
     <div id="country-panel" class="hidden">
         <button id="close-panel">×</button>
-        <div id="country-content"></div>
+        <div id="country-header"></div>
+        <div id="stat-cards"></div>
+        <div id="stat-explanation">click a card to learn what it means</div>
         <div id="trend-chart"></div>
     </div>
 
