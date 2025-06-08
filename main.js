@@ -6,8 +6,8 @@ import { feature } from "https://cdn.jsdelivr.net/npm/topojson-client@3/+esm";
 const width = 960;
 const height = 500;
 
-// fixed year for now
-const currentYear = 2015;
+// set initial year for migration data
+let currentYear = 2015;
 
 // create projection and path generator
 const projection = d3.geoNaturalEarth1()
@@ -94,6 +94,22 @@ Promise.all([
                 d3.select("#tooltip").classed("hidden", true);
                 d3.select(this).attr("stroke-width", 0.5);
             });
+
+        // update map when year changes
+        d3.select("#slider").on("input", function () {
+            currentYear = +this.value;
+            d3.select("#year-label").text(currentYear);
+
+            // update map colors
+            svg.selectAll("path")
+                .transition()
+                .duration(300)
+                .attr("fill", d => {
+                    const code = idToAlpha3[d.id];
+                    const val = migrationData[code]?.[currentYear];
+                    return val != null ? color(val) : "#ccc";
+                });
+        });
 
         console.log("map rendered with tooltips");
     }).catch(error => {

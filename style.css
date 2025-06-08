@@ -50,3 +50,14 @@ header p {
 .hidden {
   display: none;
 }
+
+/* year slider styles */
+#year-slider {
+  margin: 20px auto;
+  text-align: center;
+}
+
+#year-slider input[type="range"] {
+  width: 300px;
+  margin-top: 10px;
+}
