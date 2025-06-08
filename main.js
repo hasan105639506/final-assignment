@@ -93,6 +93,9 @@ function zoomToRegion(region) {
         .attr("transform", `translate(${translate}) scale(${scale})`);
 }
 
+// initialize region buttons
+d3.select('#region-buttons button[data-region="World"]').classed("active", true);
+
 // load map and data in parallel
 Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
@@ -193,15 +196,14 @@ Promise.all([
                 });
         });
 
-        // handle region selection
-        d3.select("#region-select").on("change", function () {
-            const region = this.value;
+        // handle region button clicks
+        d3.selectAll("#region-buttons button").on("click", function () {
+            const region = d3.select(this).attr("data-region");
             zoomToRegion(region);
-        });
 
-        // reset button returns to full view
-        d3.select("#reset-view").on("click", () => {
-            zoomToRegion("World");
+            // remove active class from all buttons, then add to clicked one
+            d3.selectAll("#region-buttons button").classed("active", false);
+            d3.select(this).classed("active", true);
         });
 
         console.log("map rendered with tooltips");

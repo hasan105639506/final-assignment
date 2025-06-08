@@ -16,7 +16,7 @@
 <body>
 
     <!-- background pattern -->
-    <div class='pattern'></div>
+    <div id='pattern'></div>
 
     <!-- page header with title and description -->
     <header>
@@ -29,30 +29,30 @@
 
     <!-- container for map visualisation -->
     <main>
-        <div id="map-container">
-            <p>Loading map...</p>
-        </div>
 
         <!-- controls for selecting region and resetting view -->
-        <div id="region-controls">
-            <label for="region-select">region: </label>
-            <select id="region-select">
-                <option value="World">world</option>
-                <option value="Africa">africa</option>
-                <option value="Europe">europe</option>
-                <option value="Asia">asia</option>
-                <option value="MiddleEast">middle east</option>
-                <option value="Americas">americas</option>
-                <option value="Oceania">oceania</option>
-            </select>
-            <button id="reset-view">🌍 reset</button>
+        <div id="top-controls">
+            <div id="region-buttons">
+                <button data-region="World">world</button>
+                <button data-region="Africa">africa</button>
+                <button data-region="Europe">europe</button>
+                <button data-region="MiddleEast">middle east</button>
+                <button data-region="Asia">asia</button>
+                <button data-region="Americas">americas</button>
+                <button data-region="Oceania">oceania</button>
+            </div>
+
+            <!-- slider to change the year-->
+            <div id="year-slider">
+                <label for="slider">year: <span id="year-label">2015</span></label>
+                <input type="range" id="slider" min="2010" max="2020" step="1" value="2015">
+            </div>
+
         </div>
 
-        <!-- slider to change which years data is shown -->
-        <div id="year-slider">
-            <label for="slider">year: <span id="year-label">2015</span></label>
-            <input type="range" id="slider" min="2010" max="2020" step="1" value="2015">
-        </div>
+        <!-- contains the actual map-->
+        <div id="map-container"></div>
+
     </main>
 
     <!-- container for tooltip (initially hidden) -->
@@ -67,6 +67,7 @@
 
     <!-- load the main javascript module -->
     <script type="module" src="main.js"></script>
+    
 </body>
 
 </html>
