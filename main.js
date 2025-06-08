@@ -35,20 +35,35 @@ const svg = d3.select("#map-container")
     .attr("height", height);
 
 // load csv and return data lookup object
-async function loadMigrationData() {
-    const raw = await d3.csv("data/migration.csv");
-    const lookup = {};
+async function loadAllData() {
+    const files = await Promise.all([
+        d3.csv("data/migration.csv"),
+        d3.csv("data/life_expectancy.csv"),
+        d3.csv("data/patient_experience.csv"),
+        d3.csv("data/perceived_health.csv"),
+        d3.csv("data/provider_ratio.csv"),
+        d3.csv("data/remuneration.csv")
+    ]);
 
-    raw.forEach(row => {
-        const code = row.country_code;
-        const year = +row.year;
-        const value = parseFloat(row.value);
+    const [migration, life, experience, health, ratio, pay] = files;
 
-        if (!lookup[code]) lookup[code] = {};
-        lookup[code][year] = value;
-    });
+    const structure = dataset => {
+        const out = {};
+        dataset.forEach(d => {
+            if (!out[d.country_code]) out[d.country_code] = {};
+            out[d.country_code][+d.year] = +d.value;
+        });
+        return out;
+    };
 
-    return lookup;
+    return {
+        migration: structure(migration),
+        life: structure(life),
+        experience: structure(experience),
+        health: structure(health),
+        ratio: structure(ratio),
+        pay: structure(pay)
+    };
 }
 
 // zoom to specific region based on selection
@@ -78,10 +93,10 @@ function zoomToRegion(region) {
 // load map and data in parallel
 Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"),
-    loadMigrationData(),
+    loadAllData(),
     d3.csv("data/country_codes.csv")
 ])
-    .then(([worldData, migrationData, codeMap]) => {
+    .then(([worldData, allData, codeMap]) => {
         const countries = feature(worldData, worldData.objects.countries).features;
 
         // create id → alpha3 lookup
@@ -103,14 +118,14 @@ Promise.all([
             .attr("d", path)
             .attr("fill", d => {
                 const code = idToAlpha3[d.id];
-                const val = migrationData[code]?.[currentYear];
+                const val = allData.migration[code]?.[currentYear];
                 return val != null ? color(val) : "#ccc";
             })
             .attr("stroke", "#333")
             .attr("stroke-width", 0.5)
             .on("mouseover", function (event, d) {
                 const code = idToAlpha3[d.id];
-                const val = migrationData[code]?.[currentYear];
+                const val = allData.migration[code]?.[currentYear];
                 const name = d.properties.name || code;
                 const text = `<strong>${name}</strong><br>${val != null ? val.toFixed(1) + '% migrant workers' : 'no data'}`;
 
@@ -131,19 +146,31 @@ Promise.all([
             })
             .on("click", function (event, d) {
                 const code = idToAlpha3[d.id];
-                const val = migrationData[code]?.[currentYear];
                 const name = d.properties.name || code;
+
+                const stats = {
+                    migration: allData.migration[code]?.[currentYear],
+                    life: allData.life[code]?.[currentYear],
+                    experience: allData.experience[code]?.[currentYear],
+                    health: allData.health[code]?.[currentYear],
+                    ratio: allData.ratio[code]?.[currentYear],
+                    pay: allData.pay[code]?.[currentYear]
+                };
 
                 const html = `
                     <h3>${name}</h3>
                     <p><strong>year:</strong> ${currentYear}</p>
-                    <p><strong>migrant health workers:</strong> ${val != null ? val.toFixed(1) + '%' : 'no data'}</p>
-                    `;
+                    <p><strong>migrant health workers:</strong> ${fmt(stats.migration, '%')}</p>
+                    <p><strong>life expectancy:</strong> ${fmt(stats.life, 'yrs')}</p>
+                    <p><strong>patient experience:</strong> ${fmt(stats.experience, '/10')}</p>
+                    <p><strong>good perceived health:</strong> ${fmt(stats.health, '%')}</p>
+                    <p><strong>doctors/nurses per 1,000:</strong> ${fmt(stats.ratio)}</p>
+                    <p><strong>avg remuneration:</strong> ${fmt(stats.pay, '$', true)}</p>
+                `;
 
                 d3.select("#country-content").html(html);
                 d3.select("#country-panel").classed("visible", true);
             });
-
 
         // update map when year changes
         d3.select("#slider").on("input", function () {
@@ -156,7 +183,7 @@ Promise.all([
                 .duration(300)
                 .attr("fill", d => {
                     const code = idToAlpha3[d.id];
-                    const val = migrationData[code]?.[currentYear];
+                    const val = allData.migration[code]?.[currentYear];
                     return val != null ? color(val) : "#ccc";
                 });
         });
@@ -182,3 +209,9 @@ document.getElementById("close-panel").addEventListener("click", () => {
     d3.select("#country-panel").classed("visible", false);
 });
 
+function fmt(value, suffix = '', money = false) {
+    if (value == null || isNaN(value)) return 'no data';
+    return money
+        ? '$' + Math.round(value).toLocaleString()
+        : value.toFixed(1) + suffix;
+}
